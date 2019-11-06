@@ -1,0 +1,20 @@
+<div class="container">
+	<h3>Salut <%=@user.first_name %></h3>
+	  <p> Prenom :<%= @user.first_name %></p>>
+	  <p> Nom : <%= @user.last_name %></p>
+	  <p> Email :<%= @user.email %></p>
+	  <p> Description<%= @user.description %></p>
+
+
+	<%= link_to 'Modifier email ou mot de passe', edit_user_registration_path %><br>
+	<%= link_to 'Modifier mes informations', edit_user_path(@user.id) %>
+
+
+
+	<% @user.events.each do |event| %>
+	  <div class="event-element">
+	    <%= event.title %>
+	    <%= link_to 'plus', event_path(event.id) %>
+	  </div>
+	<% end %>
+</div>
